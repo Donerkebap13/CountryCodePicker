@@ -168,6 +168,12 @@ class _CountryCodePickerState extends State<CountryCodePicker> {
 
   @override
   initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      for(CountryCode code in elements) {
+        code.localize(context);
+      }
+    });
+
     if (widget.initialSelection != null) {
       selectedItem = elements.firstWhere(
           (e) =>
