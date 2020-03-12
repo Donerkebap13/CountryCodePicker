@@ -7,6 +7,7 @@ class SelectionDialog extends StatefulWidget {
   final bool showCountryOnly;
   final InputDecoration searchDecoration;
   final TextStyle searchStyle;
+  final TextStyle optionStyle;
   final WidgetBuilder emptySearchBuilder;
   final bool showFlag;
   final double flagWidth;
@@ -22,6 +23,7 @@ class SelectionDialog extends StatefulWidget {
     this.emptySearchBuilder,
     InputDecoration searchDecoration = const InputDecoration(),
     this.searchStyle,
+    this.optionStyle,
     this.showFlag,
     this.flagWidth = 32,
   })  : assert(searchDecoration != null, 'searchDecoration must not be null!'),
@@ -112,6 +114,7 @@ class _SelectionDialogState extends State<SelectionDialog> {
                   ? e.toCountryStringOnly(context)
                   : e.toLongString(context),
               overflow: TextOverflow.fade,
+              style: widget.optionStyle,
             ),
           ),
         ],
